@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import './styles/Filter.css';
+import './styles/Title.css';
+import './styles/Brands.css';
+import './styles/Price.css';
+import {Title} from './components/title';
+import {Brand} from './components/brand';
+import {Price} from './components/price';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export let App = () => {
+    return (
+        <div className="App">
+            <div className="Filter">
+                <Title/>
+                <Brand/>
+                <Price/>
+            </div>
+        </div>
+    );
 }
 
 export default App;

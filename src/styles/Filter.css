@@ -1,0 +1,10 @@
+.Filter {
+  background: #feffff;
+  border-radius: 5px;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+

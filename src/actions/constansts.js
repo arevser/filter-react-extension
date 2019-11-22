@@ -1,0 +1,3 @@
+export const SELECT_BRAND = 'SELECT_BRAND';
+export const CLEAR_ALL_BRAND = 'CLEAR_ALL_BRAND';
+export const CHANGE_PRICE_BRAND = 'CHANGE_PRICE_BRAND';

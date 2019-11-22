@@ -1,0 +1,59 @@
+.Title {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Title > div {
+    padding: 20px;
+}
+
+
+.Title .Title-block {
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: left;
+    width: 60%;
+}
+
+.Title .Clear-all {
+    border-bottom: 1px solid #ccc;
+    width: 40%;
+}
+
+.Clear-all button {
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    background-color: transparent;
+}
+
+.Clear-all button:after {
+    display: inline-block;
+    content: "\f4c4";
+    color: inherit;
+    font-family: "Ionicons";
+    font-size: 23px;
+    line-height: 14px;
+    padding-left: 10px;
+}
+
+.Clear-all button.enable {
+    color: inherit;
+    cursor: pointer;
+}
+
+.Clear-all button.enable:after {
+    color: inherit;
+}
+
+.Clear-all button.disable {
+    color: #cccccc;
+    cursor: auto;
+}
+
+.Clear-all button.disable:after {
+    color: #cccccc;
+}

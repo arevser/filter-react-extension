@@ -1,0 +1,46 @@
+.Brand-wrapper {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+    text-align: left;
+}
+
+.Brand-wrapper .Title-block{
+    margin-bottom: 20px;
+}
+
+.Brand-block button{
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #282c34;
+    cursor: pointer;
+    font: inherit;
+    margin-left: 10px;
+    padding: 10px 30px 10px 20px;
+    position: relative;
+}
+
+.Brand-block button:hover{
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    color: blue;
+}
+
+.Brand-block button.enable{
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    color: blue;
+}
+
+.Brand-block button.enable:after{
+    display: block;
+    content: "\f2d7";
+    color: #ccc;
+    font-family: "Ionicons";
+    font-size: 14px;
+    line-height: 14px;
+    padding-left: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
