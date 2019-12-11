@@ -3,39 +3,52 @@ import Slider from "rc-slider";
 import Tooltip from 'rc-tooltip';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
-import {createPriceArray} from '../../helpers/createPriceArray';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const Handle = Slider.Handle;
 
-export const PriceRange = (props) => {
+const checkInNumber = (element, defaultValue) => {
+    if(!isNaN(element)) {
+        return element;
+    }
+    return defaultValue;
+};
 
-    let data = createPriceArray(props);
+export const PriceRange = (props) => {
 
     return (
         <Fragment>
             <div className="Price-filter">
                 <span>From</span>
-                <input type="text" value={data.minValue}
-                       onChange={(event) => {
-                           props.onChangePriceInputs({minPrice: parseInt(event.target.value)})
-                       }}/>
+                <input
+                    type="number"
+                    value={props.minPrice}
+                    onChange={(event) => {
+                        props.onChangePriceInputs({minPrice: checkInNumber(parseInt(event.target.value), props.minPrice)})
+                    }}/>
                 <span>To</span>
-                <input type="text" value={data.maxValue}
-                       onChange={(event) => {
-                           props.onChangePriceInputs({maxPrice: parseInt(event.target.value)})
-                       }}/>
+                <input
+                    type="number"
+                    value={props.maxPrice}
+                    onChange={(event) => {
+                        props.onChangePriceInputs({maxPrice: checkInNumber(parseInt(event.target.value), props.maxPrice)})
+                    }}/>
             </div>
-            <Range min={data.minValueConst} max={data.maxValueConst} defaultValue={[data.minValue, data.maxValue]}
-                   tipFormatter={value => `${value}$`}
-                   onChange={newRange => {
-                       props.onChangePriceInputs({minPrice: newRange[0], maxPrice: newRange[1]})
-                   }}
-                   marks={data.marks}
-                   step={null}
+            <Range
+                min={props.minPriceConst}
+                max={props.maxPriceConst}
+                defaultValue={[props.minPrice, props.maxPrice]}
+                tipFormatter={value => `${value}$`}
+                onAfterChange={newRange => {
+                    props.onChangePriceInputs({minPrice: newRange[0], maxPrice: newRange[1]})
+                }}
+                marks={props.marks}
+                step={null}
             />
-            <Tooltip prefixCls="rc-slider-tooltip" placement="top">
+            <Tooltip
+                prefixCls="rc-slider-tooltip"
+                placement="top">
                 <Handle/>
             </Tooltip>
         </Fragment>

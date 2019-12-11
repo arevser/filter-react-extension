@@ -1,21 +1,40 @@
 import {connect} from "react-redux";
-import {onClickSelect, onClearAllBrands, onChangePriceInputs} from "./actions";
+import {onClickSelect, onClearAllBrands, onChangePriceInputs, onSendRequestData} from "./actions";
+import { createSelector } from 'reselect'
+import {
+    data,
+    minPrice,
+    maxPrice,
+    minPriceConst,
+    maxPriceConst,
+    marks
+} from './selectors/';
 
 
-export const ClearAllBrands = connect(state => ({
-    showBrandList: state.brandlist
-}), {
-    onClearAllBrands: () => onClearAllBrands()
+const brandSelector = createSelector(
+    [data, minPrice, maxPrice, minPriceConst, maxPriceConst, marks],
+    (data, minPrice, maxPrice, minPriceConst, maxPriceConst, marks) => ({
+        data,
+        minPrice,
+        maxPrice,
+        minPriceConst,
+        maxPriceConst,
+        marks
+    })
+);
+
+export const clearAllBrands = connect(brandSelector, {
+    onClearAllBrands
 });
 
-export const ShowBrandList = connect(state => ({
-    showBrandList: state.brandlist
-}), {
-    onClickSelect: (id) => onClickSelect(id)
+export const showBrandList = connect(brandSelector, {
+    onClickSelect
 });
 
-export const ShowPrice = connect(state => ({
-    showBrandList: state.brandlist
-}), {
-    onChangePriceInputs: (items) => onChangePriceInputs(items)
+export const showPrice = connect(brandSelector, {
+    onChangePriceInputs
+});
+
+export const sendRequestDataConnect = connect(brandSelector, {
+    onSendRequestData
 });

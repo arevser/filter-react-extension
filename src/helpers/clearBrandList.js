@@ -1,17 +1,27 @@
 import React from 'react';
 
-export const clearBrandList = (state, payload) => {
-
-    // console.log(state, payload);
+export const clearBrandList = (state) => {
 
     const data = state.data.map((el) => {
-        if (!payload && el.select) {
+        if (el.select) {
             return {...el, select: false}
         }
         return el
     });
 
-    const result = {...state, data};
+    const marksArray = state.data.map((el) => {
+        if (el.price) {
+            return el.price;
+        }
+    });
+
+    const marks = {};
+
+    marksArray.forEach(function (item) {
+        marks[item] = item;
+    });
+
+    const result = {...state, data, marks};
 
     return result;
 

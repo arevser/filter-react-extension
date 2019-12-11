@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrandList} from '../../components/brandlist';
-import {ShowBrandList} from "../../connector";
+import {showBrandList} from "../../connector";
 
-const ShowBrandListConnected = ShowBrandList(BrandList);
+const ShowBrandListConnected = showBrandList(BrandList);
 
 export let Brand = () => {
     return (

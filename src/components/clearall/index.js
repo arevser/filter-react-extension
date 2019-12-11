@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 const Item = (arr) => {
     return (
-        arr.showBrandList.data.find(item => item.select) ? "enable" : 'disable'
+        arr.data.find(item => item.select) ? "enable" : 'disable'
     )
 };
 
