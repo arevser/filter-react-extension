@@ -1,8 +1,8 @@
 import React from 'react';
 import {PriceRange} from '../../components/pricerange';
-import {ShowPrice} from "../../connector";
+import {showPrice} from "../../connector";
 
-const ShowPriceConnected = ShowPrice(PriceRange);
+const ShowPriceConnected = showPrice(PriceRange);
 
 
 export let Price = () => {

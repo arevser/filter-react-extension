@@ -1,8 +1,8 @@
 import React from 'react';
 import {ClearAll} from '../../components/clearall';
-import {ClearAllBrands} from "../../connector";
+import {clearAllBrands} from "../../connector";
 
-const ClearAllBrandsConnected = ClearAllBrands(ClearAll);
+const ClearAllBrandsConnected = clearAllBrands(ClearAll);
 
 export let Title = () => {
     return (
